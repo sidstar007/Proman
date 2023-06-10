@@ -1,6 +1,8 @@
 package com.management.proman.adapters
 
 import android.content.Context
+import android.graphics.Color
+import android.provider.CalendarContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +35,11 @@ open class CardListItemsAdapter(
 
             val tvCardName = holder.itemView.findViewById<TextView>(R.id.tv_card_name)
             tvCardName.text = model.name
+            if (model.labelColor.isNotEmpty()) {
+                val viewLabelColor = holder.itemView.findViewById<View>(R.id.view_label_color)
+                viewLabelColor.visibility = View.VISIBLE
+                viewLabelColor.setBackgroundColor(Color.parseColor(model.labelColor))
+            }
 
             holder.itemView.setOnClickListener {
                 if (onClickListener != null) {

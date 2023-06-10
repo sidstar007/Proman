@@ -15,12 +15,14 @@ import com.management.proman.firebase.FirestoreClass
 import com.management.proman.models.Board
 import com.management.proman.models.Card
 import com.management.proman.models.Task
+import com.management.proman.models.User
 import com.management.proman.utils.Constants
 
 class TaskListActivity : BaseActivity() {
 
     private lateinit var mBoardDetails: Board
     private lateinit var boardDocumentId: String
+    private lateinit var mAssignedMemberDetailList: ArrayList<User>
 
     companion object {
         const val MEMBERS_REQUEST_CODE: Int = 13
@@ -73,6 +75,9 @@ class TaskListActivity : BaseActivity() {
 
         val adapter = TaskListItemsAdapter(this, board.taskList)
         rvTaskList.adapter = adapter
+
+        showProgressDialog(resources.getString(R.string.please_wait))
+        FirestoreClass().getAssignedMembersListDetails(this, mBoardDetails.assignedTo)
     }
 
     fun addUpdateTaskListSuccess() {
@@ -168,6 +173,13 @@ class TaskListActivity : BaseActivity() {
         intent.putExtra(Constants.BOARD_DETAIL, mBoardDetails)
         intent.putExtra(Constants.TASK_LIST_ITEM_POSITION, taskListPosition)
         intent.putExtra(Constants.CARD_LIST_ITEM_POSITION, cardPosition)
+        intent.putExtra(Constants.BOARD_MEMBERS_LIST, mAssignedMemberDetailList)
         startActivityForResult(intent, CARD_DETAIL_REQUEST_CODE)
+    }
+
+    fun boardMembersDetailsList(list: ArrayList<User>) {
+        mAssignedMemberDetailList = list
+
+        hideProgressDialog()
     }
 }
