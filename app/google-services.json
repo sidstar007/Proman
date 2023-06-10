@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "548276433363",
+    "project_id": "proman-442d2",
+    "storage_bucket": "proman-442d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548276433363:android:f5da00d684803dd569ff26",
+        "android_client_info": {
+          "package_name": "com.management.proman"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiyDIbgcOdxqzWzlUVcLcbZnZoOM2KB7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
