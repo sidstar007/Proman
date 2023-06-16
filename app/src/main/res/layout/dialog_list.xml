@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/shape_dialog_rounded"
+        app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="@dimen/dialog_list_cv_elevation_and_corner_radius"
         app:cardElevation="@dimen/dialog_list_cv_elevation_and_corner_radius"
         app:cardUseCompatPadding="true">

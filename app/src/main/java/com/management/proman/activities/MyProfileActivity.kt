@@ -40,7 +40,7 @@ class MyProfileActivity : BaseActivity() {
         val userImage = findViewById<ImageView>(R.id.iv_profile_user_image)
         userImage.setOnClickListener {
             if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-                Constants.showImageChooser(this)
+                Constants.showImageChooser(this@MyProfileActivity)
             }
             else {
                 ActivityCompat.requestPermissions(
@@ -82,13 +82,13 @@ class MyProfileActivity : BaseActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Activity.RESULT_OK && requestCode == Constants.PICK_IMAGE_REQUEST_CODE && data!!.data != null) {
+        if (resultCode == Activity.RESULT_OK && requestCode == Constants.PICK_IMAGE_REQUEST_CODE && data!!.data != null) {
             mSelectedImageFileUri = data.data
 
             try {
                 val userImage = findViewById<ImageView>(R.id.iv_profile_user_image)
                 Glide
-                    .with(this)
+                    .with(this@MyProfileActivity)
                     .load(mSelectedImageFileUri)
                     .centerCrop()
                     .placeholder(R.drawable.ic_user_place_holder)

@@ -16,13 +16,14 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:elevation="@dimen/card_view_elevation"
+        app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="@dimen/card_view_corner_radius">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_boards_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tv_no_boards_available"
